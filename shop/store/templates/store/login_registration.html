@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <!-- Link to external CSS for styles -->
+    <link rel="stylesheet" href="{%static 'store/style/login.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+<div style="height: 600px; width: 1000px;" class="wrapper">
+    <!-- Background animation spans -->
+    <span class=""></span>
+    <span class="bg-animate2"></span>
+
+    <!-- Login form container -->
+    <div class="form-box login">
+        <h2 class="animation" style="--data:0;">Login</h2>
+        <form class="login_form" action="{% url 'login' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Username input -->
+            <div class="input-box animation" style="--data:3;">
+                <div class="form-group">
+                    <h3>Login</h3>
+                    {{ login_form.username }}
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="input-box animation" style="--data:3;">
+                <div class="form-group">
+                    <h3>Password</h3>
+                    {{ login_form.password }}
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn animation" style="--data:4">Login</button>
+
+            <!-- Link to sign-up form -->
+            <div class="reg-link animation" style="--data:4;">
+                <p>Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Welcome back message for login -->
+    <div class="info-text login">
+        <h2 class="animation" style="--data:0;">Welcome Back!</h2>
+        <p class="animation" style="--data:1">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    </div>
+
+    <!-- Sign-Up form container -->
+    <div class="form-box signup">
+        <h2 class="animation">Sign Up</h2>
+
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <!-- Username input -->
+            <div class="input-box animation" style="--data:17">
+                <h3>Username</h3>
+                <div class="form-group">
+                    {{ register_form.username }}
+                </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="input-box animation" style="--data:18">
+                <h3>Firstname</h3>
+                <div class="form-group">
+                    {{ register_form.first_name }}
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="input-box animation" style="--data:19">
+                <h3>Lastname</h3>
+                <div class="form-group">
+                    {{ register_form.last_name }}
+                </div>
+            </div>
+
+            <div class="input-box animation" style="--data:19">
+                <h3>Email</h3>
+                <div class="form-group">
+                    {{ register_form.email }}
+                </div>
+            </div>
+
+            <div class="input-box animation" style="--data:19">
+                <h3>Password</h3>
+                <div class="form-group">
+                    {{ register_form.password1 }}
+                </div>
+            </div>
+
+            <div class="input-box animation" style="--data:19">
+                <h3>Confirm Password</h3>
+                <div class="form-group">
+                    {{ register_form.password2 }}
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn animation" style="--data:20">Sign Up</button>
+
+            <!-- Link to login form -->
+            <div class="reg-link animation" style="--data:21">
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Welcome back message for signup -->
+    <div class="info-text signup">
+        <h2 class="animation" style="--data:22">Welcome Back!</h2>
+        <p class="animation" style="--data:23">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    </div>
+</div>
+
+<!-- External JavaScript file -->
+<script src="{% static 'store/js/script.js' %}"></script>
+</body>
+</html>
